@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pendo Test</title>
+  <script>
+    (function(apiKey){
+        (function(p,e,n,d,o){var v,w,x,y,z;o=p[d]=p[d]||{};o._q=o._q||[];
+        v=['initialize','identify','updateOptions','pageLoad','track'];for(w=0,x=v.length;w<x;++w)(function(m){
+            o[m]=o[m]||function(){o._q[m===v[0]?'unshift':'push']([m].concat([].slice.call(arguments,0)));};})(v[w]);
+            y=e.createElement(n);y.async=!0;y.src='https://cdn.pendo.io/agent/static/'+apiKey+'/pendo.js';
+            z=e.getElementsByTagName(n)[0];z.parentNode.insertBefore(y,z);})(window,document,'script','pendo');
+    })('df97d9d6-ae21-46e7-7780-3004ec97d647');
+  </script>
+</head>
+<body>
+  <h1>Hello from Pendo test page</h1>
+  <button onclick="authUser()">Simulate Login</button>
+
+  <script>
+    function authUser() {
+      pendo.initialize({
+        visitor: {
+          id: "hacker123",
+          email: "hacker@example.com",
+          firstName: "Hax",
+          lastName: "McSploit",
+        },
+        account: {
+          id: "account001",
+          accountName: "ExploitCorp",
+          payingStatus: "yes",
+        }
+      });
+    }
+  </script>
+</body>
+</html>
